@@ -33,11 +33,11 @@ int stopwatchTime[3] = {0,0,0}, isStartedSWT = 0, resetSWT = 0;
 int timerTime[3] = {0,0,0}, isStartedTMR = 0, setTMR = 1;
 
 //Days of the week in Russian and English
-char *DaysRU[7] = {"воскресенье", "понедельник", "вторник", "среда", "четверг", "пятница", "суббота"};
+char *DaysRU[7] = {"ГўГ®Г±ГЄГ°ГҐГ±ГҐГ­ГјГҐ", "ГЇГ®Г­ГҐГ¤ГҐГ«ГјГ­ГЁГЄ", "ГўГІГ®Г°Г­ГЁГЄ", "Г±Г°ГҐГ¤Г ", "Г·ГҐГІГўГҐГ°ГЈ", "ГЇГїГІГ­ГЁГ¶Г ", "Г±ГіГЎГЎГ®ГІГ "};
 char *DaysENG[7] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
 
 //Months of the year in Russian and English
-char *monthsRU[12] = {"января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"};
+char *monthsRU[12] = {"ГїГ­ГўГ Г°Гї", "ГґГҐГўГ°Г Г«Гї", "Г¬Г Г°ГІГ ", "Г ГЇГ°ГҐГ«Гї", "Г¬Г Гї", "ГЁГѕГ­Гї", "ГЁГѕГ«Гї", "Г ГўГЈГіГ±ГІГ ", "Г±ГҐГ­ГІГїГЎГ°Гї", "Г®ГЄГІГїГЎГ°Гї", "Г­Г®ГїГЎГ°Гї", "Г¤ГҐГЄГ ГЎГ°Гї"};
 char *monthsENG[12] = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
 
 volatile unsigned char sec_flag=0;
@@ -80,14 +80,13 @@ ISR (TIMER1_COMPA_vect)
 {
 	if(isStartedSWT) stopwatchTime[0]++; //Increasing the stopwatch time every second
 	if(isStartedTMR) timerTime[0]--; //Decreasing the stopwatch time every second
-	/*if(scene == 1) 
+	if(scene == 1) 
 	{
 		//Getting current time
 		getCurrentTime(); 
 		//Getting current date
 		getCurrentDate(); 
 	}
-	*/
 }
 
 //ADC initialization
@@ -312,7 +311,7 @@ void printStartMenu()
 	//Displaying the start menu with language selection
 	if (startScreenScene == 0)
 	{
-		LCD_String(4, 10, "Русский");
+		LCD_String(4, 10, "ГђГіГ±Г±ГЄГЁГ©");
 		LCD_String(4, 78, "English");
 	}
 	//Displaying the start menu with date and time selection
@@ -432,8 +431,8 @@ void printMainMenu()
 	//Displaying the stopwatch and timer settings buttons according to the language
 	if (!language)
 	{
-		LCD_String(6,8,"Секундомер"); 
-		LCD_String(6,80,"Таймер");
+		LCD_String(6,8,"Г‘ГҐГЄГіГ­Г¤Г®Г¬ГҐГ°"); 
+		LCD_String(6,80,"Г’Г Г©Г¬ГҐГ°");
 	}
 	else
 	{
@@ -472,12 +471,12 @@ void printStopwatchMenu()
 
 	if (!language) //Drawing of the control buttons back, start and stop in Russian
 	{
-		LCD_String(0,0,"назад");
-		LCD_String(5,27,"Стоп");
-		LCD_String(5,64,"Старт");
+		LCD_String(0,0,"Г­Г Г§Г Г¤");
+		LCD_String(5,27,"Г‘ГІГ®ГЇ");
+		LCD_String(5,64,"Г‘ГІГ Г°ГІ");
 		if (isStartedSWT)
 		{
-			LCD_String(7,45, "Сброс");
+			LCD_String(7,45, "Г‘ГЎГ°Г®Г±");
 		}
 	}
 	else //Drawing of the control buttons back, start and stop in Russian
@@ -522,7 +521,7 @@ void printTimerMenu()
 	{
 		if (!language)//Rendering the timer menu before starting in Russian
 		{
-			LCD_String(0,0,"назад");
+			LCD_String(0,0,"Г­Г Г§Г Г¤");
 			LCD_Char(3,2, timerTime[2]/10+'0');
 			LCD_Char(3,9,timerTime[2]%10+'0');
 			LCD_Char(3,16,':');
@@ -532,21 +531,21 @@ void printTimerMenu()
 			LCD_Char(3,44, timerTime[0]/10+'0');
 			LCD_Char(3,51,timerTime[0]%10+'0');
 			
-			LCD_String(0,69,"+1с");
-			LCD_String(0,95,"+10с");
-			LCD_String(1,69,"+1м");
-			LCD_String(1,95,"+10м");
-			LCD_String(2,69,"+1ч");
-			LCD_String(2,101,"+5ч");
+			LCD_String(0,69,"+1Г±");
+			LCD_String(0,95,"+10Г±");
+			LCD_String(1,69,"+1Г¬");
+			LCD_String(1,95,"+10Г¬");
+			LCD_String(2,69,"+1Г·");
+			LCD_String(2,101,"+5Г·");
 			
-			LCD_String(4,69,"-1с");
-			LCD_String(4,95,"-10с");
-			LCD_String(5,69,"-1м");
-			LCD_String(5,95,"-10м");
-			LCD_String(6,69,"-1ч");
-			LCD_String(6,101,"-5ч");
+			LCD_String(4,69,"-1Г±");
+			LCD_String(4,95,"-10Г±");
+			LCD_String(5,69,"-1Г¬");
+			LCD_String(5,95,"-10Г¬");
+			LCD_String(6,69,"-1Г·");
+			LCD_String(6,101,"-5Г·");
 			
-			LCD_String(5,13,"Старт");
+			LCD_String(5,13,"Г‘ГІГ Г°ГІ");
 		}
 		else //Rendering the timer menu before starting in Russian
 		{
@@ -588,7 +587,7 @@ void printTimerMenu()
 		LCD_Char(3,40,timerTime[2]%10+'0');
 		LCD_Char(3,47,':');
 		
-		if (!language) LCD_String(6,45,"Сброс");
+		if (!language) LCD_String(6,45,"Г‘ГЎГ°Г®Г±");
 		else LCD_String(6,45,"Reset");
 	}
 }
@@ -597,15 +596,15 @@ void printSettings()
 {
 	if (!language)//Displaying all buttons in Russian
 	{
-		LCD_String(0,0,"назад");
+		LCD_String(0,0,"Г­Г Г§Г Г¤");
 		
-		LCD_String(2,0,"Стиль даты:");
-		LCD_String(3,10, "- 1 Мая");
+		LCD_String(2,0,"Г‘ГІГЁГ«Гј Г¤Г ГІГ»:");
+		LCD_String(3,10, "- 1 ГЊГ Гї");
 		LCD_String(4,10, "- 01.05");
 		LCD_String(5,10, "- 05.01");
 		
-		LCD_String(7,0, "Язык системы");
-		LCD_String(7, 92, "РУ");
+		LCD_String(7,0, "ГџГ§Г»ГЄ Г±ГЁГ±ГІГҐГ¬Г»");
+		LCD_String(7, 92, "ГђГ“");
 		LCD_String(7, 110, "ENG");
 	}
 	else //Displaying all buttons in English
@@ -618,7 +617,7 @@ void printSettings()
 		LCD_String(5,10, "- 05.01");
 		
 		LCD_String(7,0, "System");
-		LCD_String(7, 92, "РУ");
+		LCD_String(7, 92, "ГђГ“");
 		LCD_String(7, 110, "ENG");
 	}
 }
