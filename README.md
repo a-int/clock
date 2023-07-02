@@ -24,4 +24,7 @@ To achieve the main aim of this project I defined 4 main objectives, which were:
 4. Test the platform's functionality by simulating in Proteus and on the real development board (EASY AVR V7).
 
 ## Demonstration <a name="demo"></a>
-
+<img src="/assets/startup-1.JPEG" width="500" height="300"/> <img src="/assets/startup-2.JPEG" width="500" height="300"/>
+<img src="/assets/main-menu.JPEG" width="500" height="300"/> <img src="/assets/settings.JPEG" width="500" height="300"/>
+<img src="/assets/stopwatch.JPEG" width="500" height="300"/> <img src="/assets/stopwatch-after-start.JPEG" width="500" height="300"/>
+<img src="/assets/timer.JPEG" width="500" height="300"/> <img src="/assets/timer-after-start.JPEG" width="500" height="300"/>
