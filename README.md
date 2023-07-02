@@ -12,7 +12,7 @@ The focus of this project was to develop a practical knowledge of using modern c
 ### Why
 
 In today's world, humans are surrounded by intelligent devices and devices that have a certain logic. In addition to the hardware component, every intelligent device requires software to define its operation and link the individual components of the device. 
-In this work it was necessary to write software code for a real time clock based on a DS1806 sensor, the data from which is transmitted to a display equipped with a touch panel. All logic was handled by an Atmel ATmega32 microcontroller
+In this work it was necessary to write software code for a real time clock based on a DS1307 sensor, the data from which is transmitted to a display equipped with a touch panel. All logic was handled by an Atmel ATmega32 microcontroller
 
 ### How
 
